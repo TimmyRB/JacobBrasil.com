@@ -1,0 +1,29 @@
+{
+  "name": "jacobbrasil.com",
+  "version": "1.0.0",
+  "description": "A Portfolio website accessable at JacobBrasil.com for Jacob Brasil",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js",
+    "css-build": "node-sass --omit-source-map-url sass/styles.scss public/css/bulma.css",
+    "css-watch": "npm run css-build -- --watch",
+    "start": "npm run css-watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TimmyRB/JacobBrasil.com.git"
+  },
+  "author": "Jacob Brasil",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/TimmyRB/JacobBrasil.com/issues"
+  },
+  "homepage": "https://github.com/TimmyRB/JacobBrasil.com#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "bulma": "^0.8.0",
+    "node-sass": "^4.13.0"
+  }
+}

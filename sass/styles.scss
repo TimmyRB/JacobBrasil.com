@@ -1,0 +1,9 @@
+@charset "utf-8";
+@import "../node_modules/bulma/bulma.sass";
+
+// Import Quicksand Google Font
+@import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
+
+// Update Bulma's global variables
+$family-sans-serif: "Quicksand", sans-serif;
+$primary: #65C9FF;

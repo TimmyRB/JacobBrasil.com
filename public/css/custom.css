@@ -1,0 +1,8 @@
+body {
+	font-family: 'Quicksand', sans-serif;
+}
+
+.navbar-menu.is-active { 
+	position: absolute; 
+	width: 100%; 
+  } 
