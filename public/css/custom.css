@@ -1,8 +1,14 @@
-body {
-	font-family: 'Quicksand', sans-serif;
+/* Sets Mobile Nav to float on top */
+.navbar-menu.is-active {
+	position: absolute;
+	width: 100%;
 }
 
-.navbar-menu.is-active { 
-	position: absolute; 
-	width: 100%; 
-  } 
+/* Custom Button On Hover or Focused Text Color */
+.button.is-primary.is-outlined:hover {
+	color: #fff;
+}
+
+.button.is-primary.is-outlined:focus {
+	color: #fff;
+}
