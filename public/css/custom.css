@@ -12,3 +12,12 @@
 .button.is-primary.is-outlined:focus {
 	color: #fff;
 }
+
+.navbar-item.is-active {
+	border-bottom: 1px solid #65C9FF;
+}
+
+.folder {
+	width: 96px;
+	height: auto;
+}

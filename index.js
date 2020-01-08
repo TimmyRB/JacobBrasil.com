@@ -13,6 +13,10 @@ app.get('/', (req, res) => {
 	res.sendFile(__dirname + '/html/index.html')
 })
 
+app.get('/projects', (req, res) => {
+	res.sendFile(__dirname + '/html/projects.html')
+})
+
 app.get('*', (req, res) => {
 	res.sendFile(__dirname + '/html/404.html')
 })
