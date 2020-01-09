@@ -1,10 +1,12 @@
 /* Sets Mobile Nav to float on top */
+
 .navbar-menu.is-active {
 	position: absolute;
 	width: 100%;
 }
 
 /* Custom Button On Hover or Focused Text Color */
+
 .button.is-primary.is-outlined:hover {
 	color: #fff;
 }
@@ -20,4 +22,46 @@
 .folder {
 	width: 96px;
 	height: auto;
+}
+
+.year {
+	font-weight: bold;
+	color: #fff;
+	margin-top: -3em;
+}
+
+/* Mobile */
+
+@media screen and (max-width: 768px) {
+	.folder {
+		max-height: 96px;
+		max-width: 96px;
+	}
+}
+
+/* Tablet */
+
+@media screen and (min-width: 769px), print {
+	.folder {
+		max-height: 96px;
+		max-width: 96px;
+	}
+}
+
+/* Touch */
+
+@media screen and (max-width: 1023px) {
+	.folder {
+		max-height: 96px;
+		max-width: 96px;
+	}
+}
+
+/* Desktop */
+
+@media screen and (min-width: 1024px) {
+	.folder {
+		max-height: none;
+		max-width: none;
+	}
 }
