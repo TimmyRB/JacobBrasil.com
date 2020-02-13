@@ -30,6 +30,27 @@
 	margin-top: -3em;
 }
 
+.iframe-container {
+	overflow: hidden;
+	padding-top: 25%;
+	position: relative;
+	height: 100em;
+}
+
+.iframe-container iframe {
+	border: 0;
+	height: 150%;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+}
+
+.has-image-centered {
+	margin-left: auto;
+	margin-right: auto;
+}
+
 /* Mobile */
 
 @media screen and (max-width: 768px) {

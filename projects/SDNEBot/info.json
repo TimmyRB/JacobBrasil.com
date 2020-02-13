@@ -1,0 +1,12 @@
+{
+	"name": "SDNEBot",
+	"folder": "SDNEBot",
+	"hidden": false,
+	"year": 2019,
+	"month": 9,
+	"desc": "desc.txt",
+	"image": "sydney.svg",
+	"links": [
+		"https://github.com/TimmyRB/SDNEBot"
+	]
+}

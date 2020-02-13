@@ -1,0 +1,10 @@
+Sydney Bot is a Discord bot for a Sheridan
+Software Development & Network Engineering
+(SDNE) Discord. The Bot's roles include;
+setting roles for new users, assigning karma
+based off of image likes/dislikes and messages,
+allowing Admins additional commands to improve
+the experience for everyone, etc. The Bot runs
+in <a href="https://nodejs.org/en/">NodeJS</a> 
+and uses <a href="https://discord.js.org">Discord.js</a>
+as it's library for communicating with Discord.

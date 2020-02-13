@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<% include partials/head %>
+</head>
+
+<body>
+
+	<!-- Navbar -->
+	<% include partials/navbar %>
+	<% const data = JSON.parse(project) %>
+
+	<!-- Projects Hero Section -->
+	<section class="hero is-white" id="Projects">
+		<div class="hero-body">
+			<div class="container">
+				<nav class="breadcrumb" aria-label="breadcrumbs" id="breadcrumbs">
+					<ul>
+						<li>
+							<a href="/">Home</a>
+						</li>
+						<li>
+							<a href="/projects">Projects</a>
+						</li>
+						<li class="is-active">
+							<a href="/projects/<%= data.folder %>" aria-current="page"><%= data.folder %> </a>
+						</li>
+					</ul>
+				</nav>
+
+				<div class="columns is-hidden-mobile">
+					<div class="column">
+						<p class="is-size-5 has-text-justified"><%- data.desc %></p>
+
+						<% data.links.forEach(link => { %>
+						<a class="has-text-dark"
+							href="<%= link %>"><%= link.substring(link.indexOf('://') + 3, link.indexOf('.')) %></a>
+						<% }) %>
+					</div>
+					<div class="column">
+
+					</div>
+					<div class="column">
+						<img style="max-height: 600px;" src="images/<%= data.image %>">
+					</div>
+				</div>
+
+				<div class="columns is-hidden-desktop">
+					<div class="column">
+						<img style="max-height: 400px;" src="images/<%= data.image %>">
+					</div>
+					<div class="column">
+						<p class="is-size-5 has-text-justified"><%- data.desc %></p>
+
+						<% data.links.forEach(link => { %>
+						<a class="has-text-dark"
+							href="<%= link %>"><%= link.substring(link.indexOf('://') + 3, link.indexOf('.')) %></a>
+						<% }) %>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</section>
+
+</body>
+
+</html>

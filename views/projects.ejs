@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<% include partials/head %>
+</head>
+
+<body>
+
+	<!-- Navbar -->
+	<% include partials/navbar %>
+
+	<!-- Projects Hero Section -->
+	<section class="hero is-white" id="Projects">
+		<div class="hero-body">
+			<div class="container">
+				<nav class="breadcrumb" aria-label="breadcrumbs">
+					<ul>
+						<li>
+							<a href="/">Home</a>
+						</li>
+						<li class="is-active">
+							<a href="/projects" aria-current="page">Projects</a>
+						</li>
+					</ul>
+				</nav>
+				<div class="columns is-multiline is-mobile has-text-centered" id="project-holder">
+					<% JSON.parse(projects).forEach(project => { %>
+						<div class="column"><a href="/projects/<%= project.folder %>"><img class="folder" src="images/folder.svg"><p class="year"><%= project.year %></p><p><%= project.name %></p></a></div>`
+					<% }) %>
+				</div>
+			</div>
+		</div>
+	</section>
+
+</body>
+
+</html>

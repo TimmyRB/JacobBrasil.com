@@ -1,0 +1,12 @@
+{
+	"name": "StudyRoomBooking",
+	"folder": "StudyRoomBooking",
+	"hidden": false,
+	"year": 2020,
+	"month": 1,
+	"desc": "desc.txt",
+	"image": "mockup.png",
+	"links": [
+		"https://github.com/TimmyRB/StudyRoomBooking"
+	]
+}

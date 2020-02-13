@@ -1,0 +1,13 @@
+StudyRoomBooking is an application a friend and I started work on in 2019
+to improve Sheridan College's study room booking service. However, exam
+season came and all work on the app ceased until the following year when
+we decided to completely redo the app from the ground up.  Built in 
+<a href="https://flutter.dev/">Flutter</a>, the app utilizes Google's 
+<a href="https://firebase.google.com/">Firebase</a> for quick 
+prototyping and a fast querying database. Within the application, 
+you can book a room in as little as two clicks, view your current 
+& upcoming bookings, and share bookings with classmates so everyone 
+knows when & where. Physical room locations can be outfitted with a 
+simple QR code, which when scanned by the app shows all bookings for that 
+room for the day. This allows students to easily check if a room has 
+a booking starting soon.
