@@ -26,7 +26,11 @@
 				</nav>
 				<div class="columns is-multiline is-mobile has-text-centered" id="project-holder">
 					<% JSON.parse(projects).forEach(project => { %>
-						<div class="column"><a href="/projects/<%= project.folder %>"><img class="folder" src="images/folder.svg"><p class="year"><%= project.year %></p><p><%= project.name %></p></a></div>`
+					<div class="column"><a href="/projects/<%= project.folder %>"><img class="folder"
+								alt="Project Icon for <%= project.folder %> " src="images/folder.svg">
+							<p class="year"><%= project.year %></p>
+							<p><%= project.name %></p>
+						</a></div>`
 					<% }) %>
 				</div>
 			</div>

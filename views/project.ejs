@@ -42,13 +42,14 @@
 
 					</div>
 					<div class="column">
-						<img style="max-height: 600px;" src="images/<%= data.image %>">
+						<img style="max-height: 600px;" alt="<%= data.image.substring(0, data.image.indexOf('.')) %>"
+							src="images/<%= data.image %>">
 					</div>
 				</div>
 
 				<div class="columns is-hidden-desktop">
 					<div class="column">
-						<img style="max-height: 400px;" src="images/<%= data.image %>">
+						<img style="max-height: 400px;" alt="<%= data.image.substring(0, data.image.indexOf('.')) %>" src="images/<%= data.image %>">
 					</div>
 					<div class="column">
 						<p class="is-size-5 has-text-justified"><%- data.desc %></p>
