@@ -3,12 +3,9 @@
 // Import Quicksand Google Font
 @import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
 
-// Set your brand colors
-$blue: #65C9FF;
-
 // Update Bulma's global variables
 $family-sans-serif: "Quicksand", sans-serif;
-$primary: $blue;
+$primary: #007DFE;
 $widescreen-enabled: true;
 $fullhd-enabled: true;
 
