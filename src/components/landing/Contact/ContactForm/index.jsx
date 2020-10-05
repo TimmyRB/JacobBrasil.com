@@ -16,12 +16,12 @@ export default () => (
       success: false,
     }}
     validationSchema={Yup.object().shape({
-      name: Yup.string().required('Full name field is required'),
+      name: Yup.string().required('Your name is required'),
       email: Yup.string()
         .email('Invalid email')
-        .required('Email field is required'),
-      message: Yup.string().required('Message field is required'),
-      recaptcha: Yup.string().required('Robots are not welcome yet!'),
+        .required('An email is required'),
+      message: Yup.string().required('A message is required'),
+      recaptcha: Yup.string().required('🤖 Update your Firmware'),
     })}
     onSubmit={async ({ name, email, message }, { setSubmitting, resetForm, setFieldValue }) => {
       try {
