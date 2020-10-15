@@ -1,76 +1,75 @@
-const config = require('./src/data/config');
-
 require('dotenv').config({
-  path: `.env.${process.env.NODE_ENV}`,
-});
+  path: `.env.${process.env.NODE_ENV}`
+})
 
 module.exports = {
   siteMetadata: {
-    title: config.defaultTitle,
-    description: config.defaultDescription,
-    author: config.author,
+    title: `Jacob Brasil`,
+    description: `A collection of projects created or contributed to by Jacob Brasil.`,
+    author: `Jacob Brasil`,
+    menuLinks: [
+      {
+        name: 'Projects',
+        slug: '/projects'
+      },
+      {
+        name: 'About',
+        slug: '/about'
+      },
+      {
+        name: 'Contact',
+        slug: '/contact'
+      },
+    ]
   },
   plugins: [
-    'gatsby-plugin-react-helmet',
-    'gatsby-plugin-styled-components',
-    'gatsby-transformer-sharp',
-    'gatsby-plugin-sharp',
+    `gatsby-plugin-react-helmet`,
     {
-      resolve: 'gatsby-source-graphql',
+      resolve: `gatsby-source-contentful`,
       options: {
-        typeName: 'GitHub',
-        fieldName: 'github',
-        url: 'https://api.github.com/graphql',
-        headers: {
-          Authorization: `bearer ${process.env.GATSBY_PORTFOLIO_GITHUB_TOKEN}`,
-        },
-        fetchOptions: {},
+        spaceId: `mpj2gwc257cd`,
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN
+      }
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `./src/images/`,
+      },
+    },
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `gatsby-starter-default`,
+        short_name: `starter`,
+        start_url: `/`,
+        background_color: `#663399`,
+        theme_color: `#663399`,
+        display: `minimal-ui`,
+        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
     {
-      resolve: 'gatsby-plugin-nprogress',
+      resolve: `gatsby-plugin-typescript`,
       options: {
-        color: config.themeColor,
-        showSpinner: false,
+        isTSX: false, // defaults to false
+        jsxPragma: `React`, // defaults to "React"
+        allExtensions: false, // defaults to false
       },
     },
     {
-      resolve: 'gatsby-plugin-google-analytics',
+      resolve: `gatsby-plugin-google-fonts`,
       options: {
-        trackingId: config.googleAnalyticsID,
-        head: true,
+        fonts: [
+          `quicksand\:300,400,500,700`,
+        ],
       },
     },
-    {
-      resolve: 'gatsby-plugin-favicon',
-      options: {
-        logo: './static/favicon/favicon-512.png',
-        injectHTML: true,
-        icons: {
-          android: true,
-          appleIcon: true,
-          appleStartup: true,
-          coast: false,
-          favicons: true,
-          firefox: true,
-          twitter: false,
-          yandex: false,
-          windows: false,
-        },
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-manifest',
-      options: {
-        name: config.defaultTitle,
-        short_name: 'starter',
-        start_url: '/',
-        background_color: config.backgroundColor,
-        theme_color: config.themeColor,
-        display: 'minimal-ui',
-        icon: './static/favicon/favicon-512.png',
-      },
-    },
-    'gatsby-plugin-offline',
+    // this (optional) plugin enables Progressive Web App + Offline functionality
+    // To learn more, visit: https://gatsby.dev/offline
+    // `gatsby-plugin-offline`,
   ],
-};
+}
