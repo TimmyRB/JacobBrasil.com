@@ -1,6 +1,5 @@
 import React from "react"
 import { graphql, Link, useStaticQuery } from "gatsby"
-import { isMobile } from "react-device-detect"
 import styled from "styled-components"
 import Img from "gatsby-image"
 import Slider from "react-slick"
