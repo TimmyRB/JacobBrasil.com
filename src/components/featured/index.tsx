@@ -4,34 +4,7 @@ import "./featured.css"
 
 export default () => (
   <StaticQuery
-    query={graphql`
-      query FeaturedQuery {
-        allContentfulProject(
-          limit: 1
-          sort: { fields: [createdAt], order: DESC }
-          filter: { node_locale: { eq: "en-US" } }
-        ) {
-          edges {
-            node {
-              id
-              slug
-              title
-              description
-              category {
-                title
-                slug
-              }
-              image {
-                fluid(maxWidth: 1364, quality: 85) {
-                  src
-                  ...GatsbyContentfulFluid
-                }
-              }
-            }
-          }
-        }
-      }
-    `}
+    query={``}
     render={data => (
       <header>
         {data.allContentfulProject.edges.map(edge => (

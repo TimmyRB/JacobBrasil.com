@@ -4,10 +4,15 @@ import Img from "gatsby-image"
 import styled from "styled-components"
 
 const ImageWrap = styled.div`
+  transition: margin-top 1s ease;
   width: 65vw;
 
-  @media (max-width: 1079px) {
+  @media (max-width: 768px) {
     display: none;
+  }
+
+  :hover {
+    margin-top: -2.5vh;
   }
 `
 
@@ -17,7 +22,7 @@ const HeroImage = () => {
       file(name: { eq: "Phone" }, extension: { eq: "png" }) {
         childImageSharp {
           fluid(pngQuality: 100) {
-            ...GatsbyImageSharpFluid
+            ...GatsbyImageSharpFluid_noBase64
           }
         }
       }

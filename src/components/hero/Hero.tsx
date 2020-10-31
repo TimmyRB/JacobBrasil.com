@@ -6,7 +6,7 @@ import HeroImage from "./HeroImage"
 const HeroHolder = styled.div`
   color: #f7f7ff;
   font-family: "Quicksand", sans-serif;
-  margin-top: 15%;
+  margin-top: 15vh;
   display: flex;
   justify-content: space-between;
 `
@@ -14,7 +14,7 @@ const HeroHolder = styled.div`
 const HeroContent = styled.div``
 
 const HeroTitle = styled.span`
-  color: #4949E5;
+  color: #4949e5;
   font-weight: 700;
   font-size: 3.125rem;
   max-width: 28.25rem;
@@ -30,13 +30,13 @@ const HeroTitle = styled.span`
 
 const HeroChangeable = styled.span`
   overflow: hidden;
-  background: linear-gradient(90deg, #FFFFFF, #FFFFFF 50%, #4949E5 50%);
+  background: linear-gradient(90deg, #ffffff, #ffffff 50%, #4949e5 50%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-size: 200% 100%;
-  background-position: 0 100%; 
-  transition: background-position .5s ease;
+  background-position: 0 100%;
+  transition: background-position 0.75s ease;
 
   :hover {
     background-position: 100% 0;
@@ -56,7 +56,7 @@ const HeroSubtitle = styled.span`
 const HeroButton = styled.button`
   display: block;
   margin-top: 2.5rem;
-  padding: 1.4375rem 4.0625rem;
+  padding: 1.25rem 3rem;
   color: #5d5df9;
   background-color: #fff;
   font-family: "Quicksand", sans-serif;
@@ -68,10 +68,10 @@ const HeroButton = styled.button`
   text-transform: uppercase;
   outline: none;
   cursor: pointer;
+  text-decoration: none;
 
   :hover {
     background-color: #f7f7ff;
-    border-radius: 0rem;
   }
 `
 
@@ -86,9 +86,12 @@ const Hero = () => (
         applications.
       </HeroTitle>
       <HeroSubtitle>
-        A self-taught developer experienced in creating responsive applications built for mobile, desktop & web.
+        A self-taught developer experienced in creating responsive applications
+        built for mobile, desktop & web.
       </HeroSubtitle>
-      <HeroButton>Call to Action</HeroButton>
+      <a href="#projects" style={{textDecoration: "none"}}>
+        <HeroButton>View Projects</HeroButton>
+      </a>
     </HeroContent>
     <HeroImage />
   </HeroHolder>

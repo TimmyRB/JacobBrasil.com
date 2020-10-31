@@ -2,13 +2,12 @@ import React from "react"
 import PropTypes from "prop-types"
 import { graphql, Link, useStaticQuery } from "gatsby"
 
-import Layout from "../components/layout"
-import Image from "../components/image"
+import Layout from "../components/layout/layout"
 import SEO from "../components/seo"
-import Featured from "../components/featured"
 import Hero from "../components/hero/Hero"
 import Navbar from "../components/navbar/Navbar"
-import MobileCTA from "../components/mobileCTA/MobileCTA"
+import ProjectsLayout from "../components/projects/projectsLayout"
+import Showcase from "../components/projects/Showcase"
 
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
@@ -27,14 +26,17 @@ const IndexPage = () => {
 
   return (
     <>
+      <SEO title="Home" />
       <Layout>
-        <SEO title="Home" />
         <Navbar
           menuLinks={data.site.siteMetadata.menuLinks}
           siteTitle={data.site.siteMetadata?.title || `Title`}
         />
-        <Hero/>
+        <Hero />
       </Layout>
+      <ProjectsLayout>
+        <Showcase/>
+      </ProjectsLayout>
     </>
   )
 }

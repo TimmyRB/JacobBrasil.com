@@ -1,0 +1,27 @@
+.projects {
+  background-color: #f7f7ff;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.slick-prev:before {
+  color: #0f0f11 !important;
+}
+.slick-next:before {
+  color: #0f0f11 !important;
+}
+
+.slideImg {
+  transition: transform 0.2s;
+}
+
+.slideImg:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .slideImg:hover {
+    transform: scale(1);
+  }
+}
