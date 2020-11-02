@@ -23,8 +23,11 @@ module.exports = {
     ]
   },
   plugins: [
+    `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-remark`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-source-contentful`,
       options: {
@@ -39,13 +42,11 @@ module.exports = {
         path: `./src/images/`,
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `JacobBrasil.com`,
+        short_name: `JacobBrasil.com`,
         start_url: `/`,
         background_color: `#663399`,
         theme_color: `#663399`,
@@ -69,8 +70,10 @@ module.exports = {
         ],
       },
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+    {
+      resolve: `gatsby-plugin-styled-components`,
+      options: {
+      },
+    },
   ],
 }
