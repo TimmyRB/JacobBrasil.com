@@ -10,7 +10,7 @@ module.exports = {
     menuLinks: [
       {
         name: 'Projects',
-        slug: '/projects'
+        slug: '/#projects'
       },
       {
         name: 'About',
