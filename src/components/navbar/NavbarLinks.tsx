@@ -26,7 +26,7 @@ const NavbarLinks = ({ menuLinks, textColor }) => {
   return (
     <>
       {menuLinks.map((link: { name: string; slug: string }) => (
-        <NavItem style={{ color: textColor }} to={link.slug}>{link.name}</NavItem>
+        <NavItem key={link.name + "-" + link.slug} style={{ color: textColor }} to={link.slug}>{link.name}</NavItem>
       ))}
     </>
   )
