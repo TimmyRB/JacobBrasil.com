@@ -6,7 +6,8 @@ import { faShareAlt } from "@fortawesome/free-solid-svg-icons"
 
 import Notifications, { notify } from "react-notify-toast"
 
-import { documentToHtmlString } from "@contentful/rich-text-html-renderer"
+import { BLOCKS } from "@contentful/rich-text-types"
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
 import Img from "gatsby-image"
 import SEO from "../components/seo"
@@ -95,6 +96,12 @@ const Content = styled.p`
   text-align: justify;
 `
 
+const options = {
+  renderNode: {
+    [BLOCKS.PARAGRAPH]: (node, children) => <Content>{children}</Content>,
+  },
+}
+
 const ProjectTemplate = props => {
   return (
     <>
@@ -146,13 +153,7 @@ const ProjectTemplate = props => {
             size="2x"
           />
         </Header>
-        <Content
-          dangerouslySetInnerHTML={{
-            __html: documentToHtmlString(
-              props.data.contentfulProject.description.json
-            ),
-          }}
-        />
+        {documentToReactComponents(props.data.contentfulProject.description.json, options)}
       </ProjectLayout>
     </>
   )
