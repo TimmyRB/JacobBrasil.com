@@ -1,0 +1,59 @@
+body {
+  display: flexbox;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  font-family: "Quicksand", sans-serif;
+  background-color: #F7F7FF;
+}
+
+.defaultLayout {
+  background-color: #5d5df9;
+  height: 100vh;
+  overflow-y: hidden;
+}
+
+.defaultInner {
+  max-width: 85.3125rem;
+  margin: 0 auto;
+  padding: 0 10%;
+}
+
+.showcaseLayout {
+  width: 100vw;
+  height: 100vh;
+  overflow-y: hidden;
+}
+
+.projectLayout {
+  overflow-y: hidden;
+}
+
+.projectInner {
+  max-width: 85.3125rem;
+  margin: 0 auto;
+  padding: 0 10%;
+  display: flexbox;
+}
+
+
+.slick-prev:before {
+  color: #0f0f11 !important;
+}
+.slick-next:before {
+  color: #0f0f11 !important;
+}
+
+.slideImg {
+  transition: transform 0.2s;
+}
+
+.slideImg:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .slideImg:hover {
+    transform: scale(1);
+  }
+}
