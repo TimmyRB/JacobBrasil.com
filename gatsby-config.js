@@ -72,7 +72,12 @@ module.exports = {
     },
     {
       resolve: `gatsby-plugin-styled-components`,
+      options: {},
+    },
+    {
+      resolve: `gatsby-plugin-gtag`,
       options: {
+        trackingId: `UA-78357354-6`,
       },
     },
   ],
