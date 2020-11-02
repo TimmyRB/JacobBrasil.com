@@ -1,13 +1,13 @@
 import React from "react"
-import { graphql, Link, useStaticQuery } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 import styled from "styled-components"
-import Img from "gatsby-image"
+import Img from "gatsby-image/withIEPolyfill"
 import Slider from "react-slick"
 
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 
-import "./projectsLayout.css"
+import "../layouts/layout.css"
 
 const settings = {
   dots: true,
@@ -42,7 +42,7 @@ const Slide = styled.div`
     margin-top: auto;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 882px) {
     width: 337.5px;
     height: 190px;
   }
@@ -52,7 +52,6 @@ const ShowcaseContent = styled.div`
   align-self: center;
   color: #5d5cf8;
   text-transform: uppercase;
-  font-family: "Quicksand", sans-serif;
   font-weight: 700;
 `
 
@@ -65,16 +64,16 @@ const ShowcaseTitle = styled.span`
     font-size: 10rem;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 882px) {
     font-size: 4.5rem;
   }
 `
 
 const Showcase = () => {
   const data = useStaticQuery(graphql`
-    query FeaturedQuery {
+    query ShowcaseQuery {
       allContentfulProject(
-        sort: { fields: [createdAt], order: DESC }
+        sort: { fields: [createdAt], order: ASC }
         filter: { node_locale: { eq: "en-US" } }
       ) {
         edges {
@@ -101,7 +100,7 @@ const Showcase = () => {
           <Slider {...settings}>
             {data.allContentfulProject.edges.map(edge => (
               <a href={"/projects/" + edge.node.slug}>
-                <Img className="slideImg" alt={edge.node.title} fluid={edge.node.image.fluid} />
+                <Img className="slideImg" objectFit="fill" alt={edge.node.title} fluid={edge.node.image.fluid} />
               </a>
             ))}
           </Slider>

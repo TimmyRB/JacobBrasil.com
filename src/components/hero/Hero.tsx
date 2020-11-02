@@ -5,7 +5,6 @@ import HeroImage from "./HeroImage"
 
 const HeroHolder = styled.div`
   color: #f7f7ff;
-  font-family: "Quicksand", sans-serif;
   margin-top: 15vh;
   display: flex;
   justify-content: space-between;
@@ -59,7 +58,6 @@ const HeroButton = styled.button`
   padding: 1.25rem 3rem;
   color: #5d5df9;
   background-color: #fff;
-  font-family: "Quicksand", sans-serif;
   font-size: 1.3125rem;
   font-weight: 400;
   border: none;
