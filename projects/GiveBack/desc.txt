@@ -1,9 +1,0 @@
-GiveBack was an application built during a 24 hour
-hackathon in which we were tasked with creating a way for 
-youth to partake in volunteer opportunities near them.
-As this was my group's first Hackathon, we decided to
-go simple and make a mobile app that featured a list of
-nearby events and allowed the user to follow and join an
-event. The app was built using <a href="https://flutter.dev/">Flutter</a>
-and used <a href="https://firebase.google.com/">Firebase</a>
-as it's backend to save us some time.

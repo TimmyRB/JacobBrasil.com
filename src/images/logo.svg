@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g id="Group_3" data-name="Group 3" transform="translate(-249 -57)">
+    <g id="Group_2" data-name="Group 2">
+      <rect id="Rectangle_1" data-name="Rectangle 1" width="24" height="24" transform="translate(249 57)" fill="#fff" opacity="0"/>
+    </g>
+    <g id="bxs-widget" transform="translate(249 57.586)">
+      <path id="Path_3" data-name="Path 3" d="M4,11h6a1,1,0,0,0,1-1V4a1,1,0,0,0-1-1H4A1,1,0,0,0,3,4v6A1,1,0,0,0,4,11ZM4,21h6a1,1,0,0,0,1-1V14a1,1,0,0,0-1-1H4a1,1,0,0,0-1,1v6A1,1,0,0,0,4,21Zm10,0h6a1,1,0,0,0,1-1V14a1,1,0,0,0-1-1H14a1,1,0,0,0-1,1v6A1,1,0,0,0,14,21ZM21.293,6.293,17.707,2.707a1,1,0,0,0-1.414,0L12.707,6.293a1,1,0,0,0,0,1.414l3.586,3.586a1,1,0,0,0,1.414,0l3.586-3.586a1,1,0,0,0,0-1.414Z" fill="#fff"/>
+    </g>
+  </g>
+</svg>

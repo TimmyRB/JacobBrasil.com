@@ -1,34 +1,64 @@
 {
-  "name": "jacobbrasil.com",
-  "version": "1.0.0",
-  "description": "A Portfolio website accessable at JacobBrasil.com for Jacob Brasil",
-  "main": "index.js",
+  "name": "jacob-brasil-portfolio",
+  "private": true,
+  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "version": "0.1.0",
+  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "dependencies": {
+    "@contentful/rich-text-html-renderer": "^14.1.1",
+    "@fortawesome/fontawesome-svg-core": "^1.2.32",
+    "@fortawesome/free-solid-svg-icons": "^5.15.1",
+    "@fortawesome/react-fontawesome": "^0.1.12",
+    "babel-plugin-styled-components": "^1.11.1",
+    "browser-monads": "^1.0.0",
+    "dotenv": "^8.2.0",
+    "gatsby": "^2.24.89",
+    "gatsby-image": "^2.4.20",
+    "gatsby-plugin-google-fonts": "^1.0.1",
+    "gatsby-plugin-manifest": "^2.4.32",
+    "gatsby-plugin-offline": "^3.2.29",
+    "gatsby-plugin-react-helmet": "^3.3.12",
+    "gatsby-plugin-sharp": "^2.6.37",
+    "gatsby-plugin-styled-components": "^3.3.13",
+    "gatsby-source-contentful": "^2.3.56",
+    "gatsby-source-filesystem": "^2.3.31",
+    "gatsby-transformer-remark": "^2.8.47",
+    "gatsby-transformer-sharp": "^2.5.16",
+    "prop-types": "^15.7.2",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-helmet": "^6.1.0",
+    "react-notify-toast": "^0.5.1",
+    "react-slick": "^0.27.12",
+    "slick-carousel": "^1.8.1",
+    "styled-components": "^5.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^14.11.2",
+    "@types/react": "^16.9.50",
+    "@types/react-dom": "^16.9.8",
+    "@types/react-slick": "^0.23.4",
+    "@types/styled-components": "^5.1.3",
+    "prettier": "2.1.2"
+  },
+  "keywords": [
+    "gatsby"
+  ],
+  "license": "0BSD",
   "scripts": {
-    "test": "node index.js",
-    "css-build": "node-sass --omit-source-map-url sass/styles.scss public/css/bulma.css",
-    "css-watch": "npm run css-build -- --watch",
-    "watch": "npm run css-watch",
-    "start": "node ./bin/www"
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/TimmyRB/JacobBrasil.com.git"
+    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
   },
-  "author": "Jacob Brasil",
-  "license": "UNLICENSED",
   "bugs": {
-    "url": "https://github.com/TimmyRB/JacobBrasil.com/issues"
-  },
-  "homepage": "https://github.com/TimmyRB/JacobBrasil.com#readme",
-  "dependencies": {
-    "bulma": "^0.8.0",
-    "file-system": "^2.2.2",
-    "node-sass": "^4.13.0",
-    "cookie-parser": "~1.4.4",
-    "debug": "~2.6.9",
-    "ejs": "~2.6.1",
-    "express": "~4.16.1",
-    "http-errors": "~1.6.3",
-    "morgan": "~1.9.1"
+    "url": "https://github.com/gatsbyjs/gatsby/issues"
   }
 }
