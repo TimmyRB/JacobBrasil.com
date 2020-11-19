@@ -9,9 +9,9 @@ import Showcase from "../components/projects/Showcase"
 import ShowcaseLayout from "../components/layouts/ShowcaseLayout"
 import DefaultLayout from "../components/layouts/DefaultLayout"
 
-const IndexPage = () => {
+const ProjectsPage = () => {
   const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
+    query ProjectsSiteTitleQuery {
       site {
         siteMetadata {
           title
@@ -26,13 +26,13 @@ const IndexPage = () => {
 
   return (
     <>
-      <SEO title="Home" />
-      <DefaultLayout isPurple={true}>
+      <SEO title="Projects" />
+      <DefaultLayout>
         <Navbar
+          useDark={true}
           menuLinks={data.site.siteMetadata.menuLinks}
           siteTitle={data.site.siteMetadata?.title || `Title`}
         />
-        <Hero />
       </DefaultLayout>
       <ShowcaseLayout>
         <Showcase />
@@ -41,8 +41,8 @@ const IndexPage = () => {
   )
 }
 
-IndexPage.propTypes = {
+ProjectsPage.propTypes = {
   children: PropTypes.node.isRequired,
 }
 
-export default IndexPage
+export default ProjectsPage

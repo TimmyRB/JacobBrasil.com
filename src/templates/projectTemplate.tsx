@@ -45,18 +45,18 @@ export const query = graphql`
 const FeaturedImage = styled.div`
   width: 100%;
   background-color: #ffffff;
-  box-shadow: 0 3px 24px rgba(0, 0, 0, 0.16);
   transition: scale 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12),
+    0 1px 2px rgba(0, 0, 0, 0.24);
+  -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 
   @media (min-width: 90rem) {
     float: right;
     width: 49%;
     margin-left: 1.35rem;
     margin-bottom: 0.5rem;
-
-    :hover {
-      transform: scale(1.025, 1.025);
-    }
   }
 `
 
