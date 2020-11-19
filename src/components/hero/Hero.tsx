@@ -5,7 +5,7 @@ import HeroImage from "./HeroImage"
 
 const HeroHolder = styled.div`
   color: #f7f7ff;
-  margin-top: 15vh;
+  padding: 15vh 0;
   display: flex;
   justify-content: space-between;
 `

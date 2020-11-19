@@ -7,6 +7,7 @@ import "../layouts/layout.css"
 
 const ShowcaseHolder = styled.div`
   display: flex;
+  padding: 5vh 0;
   flex-wrap: wrap;
   width: 100vw;
   justify-content: center;
@@ -44,7 +45,7 @@ const ShowcaseTitle = styled.span`
   }
 
   @media (max-width: 992px) {
-    font-size: 3rem;
+    font-size: 4.5rem;
   }
 `
 
