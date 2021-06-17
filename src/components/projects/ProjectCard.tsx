@@ -12,14 +12,11 @@ const Card = styled.div`
   background-color: #fbfbff;
   border-radius: 14px;
   color: #13162a;
+  text-align: left;
 
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 
-  padding: 20px 20px;
-
-  @media (max-width: 768px) {
-    margin-top: 0.25rem;
-  }
+  padding: 14px;
 `
 
 const Image = styled(Img)<{ fluid: FluidObject | FluidObject[] }>`
@@ -50,11 +47,10 @@ const Tag = styled.div<{ enabled: boolean }>`
   object-fit: cover;
   padding: 2px 8px;
   border-radius: 5px;
-  margin-right: 2px;
+  margin-right: 4px;
   margin-top: 4px;
-  background-color: #4949e5;
-  color: #f7f7ff;
-  opacity: ${props => (props.enabled ? "1" : "0.65")};
+  background-color: ${props => (props.enabled ? "#4949e5" : "#eee")};
+  color: ${props => (props.enabled ? "#fff" : "#13162a")};
 `
 
 const ProjectCard = ({ project, enabledTags }: ProjectCardProps) => (
