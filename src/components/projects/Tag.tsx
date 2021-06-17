@@ -13,9 +13,11 @@ const TagWrap = styled.div<{ enabled: boolean }>`
   border-radius: 5px;
   margin-right: 8px;
   margin-bottom: 8px;
-  background-color: #4949e5;
-  color: #f7f7ff;
-  opacity: ${props => (props.enabled ? "1" : "0.65")};
+  background-color: ${props => (props.enabled ? "#4949e5" : "#eee")};
+  color: ${props => (props.enabled ? "#fff" : "#13162a")};
+  /* opacity: ${props => (props.enabled ? "1" : "0.65")}; */
+  min-width: auto;
+  min-height: auto;
 `
 const Tag = ({ text, enabledTags, setEnabledTags }: TagProps) => {
   const [selected, setSelected] = useState(false)

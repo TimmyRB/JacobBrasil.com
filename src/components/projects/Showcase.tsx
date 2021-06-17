@@ -47,15 +47,13 @@ const TagsGrid = styled.span`
   flex-wrap: wrap;
 
   @media (max-width: 767px) {
-    position: relative;
+    position: inherit;
     align-items: center;
     justify-content: center;
     text-align: center;
+    margin-top: 3vh;
+    margin-bottom: 3vh;
     width: 100%;
-  }
-
-  @media (max-width: 768px) {
-    width: 35vw;
   }
 
   @media (min-width: 1800px) {
@@ -76,6 +74,10 @@ const ProjectsGrid = styled.span`
 
   @media (max-width: 1050px) {
     grid-template-columns: 1fr;
+  }
+
+  @media (max-width: 767px) {
+    width: 100%;
   }
 `
 
@@ -233,12 +235,20 @@ const Showcase = () => {
         {data.allContentfulProject.edges.map(project =>
           enabledTags.length > 0 ? (
             checkTags(project.node.category) ? (
-              <ProjectCard project={project.node} enabledTags={enabledTags} />
+              <ProjectCard
+                key={project.node.id}
+                project={project.node}
+                enabledTags={enabledTags}
+              />
             ) : (
               ""
             )
           ) : (
-            <ProjectCard project={project.node} enabledTags={enabledTags} />
+            <ProjectCard
+              key={project.node.id}
+              project={project.node}
+              enabledTags={enabledTags}
+            />
           )
         )}
       </ProjectsGrid>

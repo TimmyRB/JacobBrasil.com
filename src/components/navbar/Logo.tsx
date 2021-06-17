@@ -13,6 +13,10 @@ const LogoWrap = styled.div`
   @media (max-width: 768px) {
     margin-top: 0.25rem;
   }
+
+  @media (max-width: 320px) {
+    font-size: 0.85rem;
+  }
 `
 const Logo = ({ siteTitle, textColor }: LogoProps) => (
   <LogoWrap as={Link} to="/">

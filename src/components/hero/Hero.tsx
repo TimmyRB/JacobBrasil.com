@@ -31,6 +31,10 @@ const HeroTitle = styled.span`
   @media (max-width: 768px) {
     font-size: 2.85rem;
   }
+
+  @media (max-width: 320px) {
+    font-size: 2rem;
+  }
 `
 
 const HeroChangeable = styled.span`
@@ -77,6 +81,10 @@ const HeroButton = styled.button`
 
   @media (max-width: 1000px) {
     width: 100%;
+  }
+
+  @media (max-width: 320px) {
+    font-size: 1rem;
   }
 
   :hover {
