@@ -233,12 +233,20 @@ const Showcase = () => {
         {data.allContentfulProject.edges.map(project =>
           enabledTags.length > 0 ? (
             checkTags(project.node.category) ? (
-              <ProjectCard project={project.node} enabledTags={enabledTags} />
+              <ProjectCard
+                key={project.node.id}
+                project={project.node}
+                enabledTags={enabledTags}
+              />
             ) : (
               ""
             )
           ) : (
-            <ProjectCard project={project.node} enabledTags={enabledTags} />
+            <ProjectCard
+              key={project.node.id}
+              project={project.node}
+              enabledTags={enabledTags}
+            />
           )
         )}
       </ProjectsGrid>

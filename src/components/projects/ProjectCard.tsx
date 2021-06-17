@@ -69,7 +69,9 @@ const ProjectCard = ({ project, enabledTags }: ProjectCardProps) => (
     <Title>{project.title}</Title>
     <TagsGrid>
       {project.category.map(tag => (
-        <Tag enabled={enabledTags.includes(tag.title)}>{tag.title}</Tag>
+        <Tag key={tag.id} enabled={enabledTags.includes(tag.title)}>
+          {tag.title}
+        </Tag>
       ))}
     </TagsGrid>
   </Card>
