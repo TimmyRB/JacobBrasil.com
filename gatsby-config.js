@@ -16,10 +16,6 @@ module.exports = {
         name: 'About',
         slug: '/about'
       },
-      {
-        name: 'Contact',
-        slug: '/contact'
-      },
     ]
   },
   plugins: [

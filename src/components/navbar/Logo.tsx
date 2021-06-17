@@ -5,7 +5,7 @@ import { Link, useStaticQuery, graphql } from "gatsby"
 
 const LogoWrap = styled.div`
   font-size: 20px;
-  margin-top: -25px;
+  margin-top: -0.85rem;
   font-weight: 700;
   text-decoration: none;
   text-transform: uppercase;
@@ -14,10 +14,15 @@ const LogoWrap = styled.div`
     margin-top: 0.25rem;
   }
 `
-const Logo = ({ siteTitle, textColor }) => (
+const Logo = ({ siteTitle, textColor }: LogoProps) => (
   <LogoWrap as={Link} to="/">
     <h1 style={{ color: textColor }}>{siteTitle}</h1>
   </LogoWrap>
 )
+
+interface LogoProps {
+  siteTitle: string
+  textColor: string
+}
 
 export default Logo

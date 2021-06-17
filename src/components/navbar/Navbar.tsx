@@ -4,13 +4,13 @@ import styled from "styled-components"
 import Logo from "./Logo"
 
 const Navigation = styled.nav`
-  position: relative;
+  position: sticky;
   text-transform: uppercase;
   z-index: 2;
   align-self: center;
   border: none;
   height: 2.5rem;
-  padding-top: 3.125rem;
+  padding-top: 3rem;
   padding-bottom: 2rem;
   display: flex;
   justify-content: space-between;
@@ -25,7 +25,7 @@ const Navigation = styled.nav`
   }
 `
 
-const Toggle = styled.div`
+const Toggle = styled.div<{ navbarOpen: boolean }>`
   display: none;
   height: 100%;
   cursor: pointer;
@@ -35,7 +35,7 @@ const Toggle = styled.div`
   }
 `
 
-const Navbox = styled.div`
+const Navbox = styled.div<{ isPurple: boolean; open: boolean }>`
   display: flex;
   height: 100%;
   justify-content: flex-end;
@@ -45,20 +45,21 @@ const Navbox = styled.div`
     flex-direction: column;
     position: fixed;
     width: 100%;
+    height: auto;
     justify-content: flex-start;
-    padding-top: 1rem;
-    background-color: #f7f7ff;
-    transition: all 0.3s ease-in;
+    padding: 0.5rem 0;
+    background-color: ${props => (props.isPurple ? "#5C5EF3" : "#f7f7ff")};
+    box-shadow: 0 42px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
     top: 4.5rem;
     left: ${props => (props.open ? "-100%" : "0")};
   }
 `
 
-const Hamburger = styled.div`
-  background-color: #f7f7ff;
+const Hamburger = styled.div<{ isDark: boolean; open: boolean }>`
+  background-color: ${props => (props.isDark ? "#13162A" : "#f7f7ff")};
   width: 30px;
   height: 3px;
-  transition: all 0.3s linear;
+  transition: all 0.1s linear;
   align-self: center;
   justify-self: flex-end;
   position: relative;
@@ -68,10 +69,10 @@ const Hamburger = styled.div`
   ::after {
     width: 30px;
     height: 3px;
-    background-color: #f7f7ff;
+    background-color: ${props => (props.isDark ? "#13162A" : "#f7f7ff")};
     content: "";
     position: absolute;
-    transition: all 0.3s linear;
+    transition: all 0.1s linear;
   }
 
   ::before {
@@ -87,78 +88,35 @@ const Hamburger = styled.div`
   }
 `
 
-const HamburgerDark = styled.div`
-  background-color: #0f0f11;
-  width: 30px;
-  height: 3px;
-  transition: all 0.3s linear;
-  align-self: center;
-  justify-self: flex-end;
-  position: relative;
-  transform: ${props => (props.open ? "rotate(-45deg)" : "inherit")};
-
-  ::before,
-  ::after {
-    width: 30px;
-    height: 3px;
-    background-color: #0f0f11;
-    content: "";
-    position: absolute;
-    transition: all 0.3s linear;
-  }
-
-  ::before {
-    transform: ${props =>
-      props.open ? "rotate(-90deg) translate(-10px, 0px)" : "rotate(0deg)"};
-    top: -10px;
-  }
-
-  ::after {
-    opacity: ${props => (props.open ? "0" : "1")};
-    transform: ${props => (props.open ? "rotate(90deg) " : "rotate(0deg)")};
-    top: 10px;
-  }
-`
-
-const Navbar = ({ siteTitle, menuLinks, useDark = false }) => {
-  const [navbarOpen, setNavbarOpen] = useState(false)
+const Navbar = ({ siteTitle, menuLinks, usePurple = false }: NavbarProps) => {
+  const [navbarOpen, setNavbarOpen] = useState(true)
 
   return (
     <Navigation>
-      <Logo siteTitle={siteTitle} textColor={useDark ? "#0F0F11" : "#f7f7ff"} />
+      <Logo
+        siteTitle={siteTitle}
+        textColor={usePurple ? "#f7f7ff" : "#13162A"}
+      />
       <Toggle
         navbarOpen={navbarOpen}
         onClick={() => setNavbarOpen(!navbarOpen)}
       >
-        {navbarOpen ? (
-          useDark ? (
-            <HamburgerDark open />
-          ) : (
-            <Hamburger open />
-          )
-        ) : useDark ? (
-          <HamburgerDark />
-        ) : (
-          <Hamburger />
-        )}
+        <Hamburger isDark={!usePurple} open={!navbarOpen} />
       </Toggle>
-      {navbarOpen ? (
-        <Navbox>
-          <NavbarLinks
-            menuLinks={menuLinks}
-            textColor={useDark ? "#0F0F11" : "#f7f7ff"}
-          />
-        </Navbox>
-      ) : (
-        <Navbox open>
-          <NavbarLinks
-            menuLinks={menuLinks}
-            textColor={useDark ? "#0F0F11" : "#f7f7ff"}
-          />
-        </Navbox>
-      )}
+      <Navbox isPurple={usePurple} open={navbarOpen}>
+        <NavbarLinks
+          menuLinks={menuLinks}
+          textColor={usePurple ? "#f7f7ff" : "#13162A"}
+        />
+      </Navbox>
     </Navigation>
   )
+}
+
+interface NavbarProps {
+  siteTitle: string
+  menuLinks: { name: string; slug: string }[]
+  usePurple?: boolean
 }
 
 export default Navbar

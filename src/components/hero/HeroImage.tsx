@@ -5,9 +5,9 @@ import styled from "styled-components"
 
 const ImageWrap = styled.div`
   transition: margin-top 1s ease;
-  width: 65vw;
+  width: 50vw;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1000px) {
     display: none;
   }
 

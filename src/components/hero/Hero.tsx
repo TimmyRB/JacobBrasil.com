@@ -8,6 +8,12 @@ const HeroHolder = styled.div`
   padding: 15vh 0;
   display: flex;
   justify-content: space-between;
+
+  @media (max-width: 1000px) {
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+  }
 `
 
 const HeroContent = styled.div``
@@ -29,7 +35,7 @@ const HeroTitle = styled.span`
 
 const HeroChangeable = styled.span`
   overflow: hidden;
-  background: linear-gradient(90deg, #ffffff, #ffffff 50%, #4949e5 50%);
+  background: linear-gradient(90deg, #f7f7ff, #f7f7ff 50%, #4949e5 50%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -56,8 +62,8 @@ const HeroButton = styled.button`
   display: block;
   margin-top: 2.5rem;
   padding: 1.25rem 3rem;
-  color: #5d5df9;
-  background-color: #fff;
+  color: #5c5ef3;
+  background-color: #f7f7ff;
   font-size: 1.3125rem;
   font-weight: 400;
   border: none;
@@ -67,9 +73,14 @@ const HeroButton = styled.button`
   outline: none;
   cursor: pointer;
   text-decoration: none;
+  transition: box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+  @media (max-width: 1000px) {
+    width: 100%;
+  }
 
   :hover {
-    background-color: #f7f7ff;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   }
 `
 
@@ -84,10 +95,10 @@ const Hero = () => (
         applications.
       </HeroTitle>
       <HeroSubtitle>
-        A self-taught developer experienced in creating responsive applications
-        built for mobile, desktop & web.
+        A mostly self-taught developer experienced in creating responsive
+        applications built for mobile, desktop & web.
       </HeroSubtitle>
-      <a href="#projects" style={{textDecoration: "none"}}>
+      <a href="/projects" style={{ textDecoration: "none" }}>
         <HeroButton>View Projects</HeroButton>
       </a>
     </HeroContent>
