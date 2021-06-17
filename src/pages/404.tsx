@@ -29,7 +29,7 @@ const HeroButton = styled.button`
   display: block;
   padding: 1.25rem 3rem;
   color: #fff;
-  background-color: #5d5df9;
+  background-color: #5C5EF3;
   font-size: 2rem;
   font-weight: 400;
   border: none;

@@ -2,7 +2,7 @@ import React from "react"
 
 import "./layout.css"
 
-const ProjectLayout = ({ children }) => {
+const ProjectLayout = ({ children }: ProjectLayoutProps) => {
   return (
     <>
       <div className="projectLayout">
@@ -10,6 +10,10 @@ const ProjectLayout = ({ children }) => {
       </div>
     </>
   )
+}
+
+interface ProjectLayoutProps {
+  children: any
 }
 
 export default ProjectLayout

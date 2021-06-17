@@ -29,7 +29,6 @@ const ProjectsPage = () => {
       <SEO title="Projects" />
       <DefaultLayout>
         <Navbar
-          useDark={true}
           menuLinks={data.site.siteMetadata.menuLinks}
           siteTitle={data.site.siteMetadata?.title || `Title`}
         />
@@ -41,8 +40,6 @@ const ProjectsPage = () => {
   )
 }
 
-ProjectsPage.propTypes = {
-  children: PropTypes.node.isRequired,
-}
+ProjectsPage.propTypes = {}
 
 export default ProjectsPage

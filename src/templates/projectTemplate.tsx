@@ -131,7 +131,7 @@ const ProjectTemplate = props => {
           </HeaderText>
           <FontAwesomeIcon
             icon={faShareAlt}
-            color="#5d5df9"
+            color="#5C5EF3"
             style={{ paddingTop: "1.25rem", cursor: "pointer" }}
             onClick={() => {
               if (navigator.share) {
@@ -145,7 +145,7 @@ const ProjectTemplate = props => {
               } else {
                 copyToClipboard(window.location.href)
                 notify.show("Copied!", "custom", 5000, {
-                  background: "#5d5df9",
+                  background: "#5C5EF3",
                   text: "#f7f7ff",
                 })
               }
