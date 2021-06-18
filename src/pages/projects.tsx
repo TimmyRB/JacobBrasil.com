@@ -26,7 +26,7 @@ const ProjectsPage = () => {
 
   return (
     <>
-      <SEO title="Projects" />
+      <SEO title="Projects" themeColor="#13162a" />
       <DefaultLayout>
         <Navbar
           menuLinks={data.site.siteMetadata.menuLinks}

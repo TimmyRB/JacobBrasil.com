@@ -86,7 +86,7 @@ const Title = styled.span`
 const Subtitle = styled.span`
   font-size: 0.75rem;
   font-weight: 600;
-  color: #5C5C5C;
+  color: #5c5c5c;
 `
 
 const Content = styled.p`
@@ -105,11 +105,11 @@ const options = {
 const ProjectTemplate = props => {
   return (
     <>
-      <SEO title={props.data.contentfulProject.title} />
+      <SEO title={props.data.contentfulProject.title} themeColor="#13162a" />
       <ProjectLayout>
         <Notifications />
         <Navbar
-          useDark={true}
+          usePurple={false}
           menuLinks={props.data.site.siteMetadata.menuLinks}
           siteTitle={props.data.site.siteMetadata?.title || `Title`}
         />
@@ -124,9 +124,12 @@ const ProjectTemplate = props => {
         <Header>
           <HeaderText>
             <Title>{props.data.contentfulProject.title}</Title>
-            <br/>
+            <br />
             <Subtitle>
-              Updated {new Date(props.data.contentfulProject.updatedAt).toLocaleString()}
+              Updated{" "}
+              {new Date(
+                props.data.contentfulProject.updatedAt
+              ).toLocaleString()}
             </Subtitle>
           </HeaderText>
           <FontAwesomeIcon
@@ -153,7 +156,10 @@ const ProjectTemplate = props => {
             size="2x"
           />
         </Header>
-        {documentToReactComponents(props.data.contentfulProject.description.json, options)}
+        {documentToReactComponents(
+          props.data.contentfulProject.description.json,
+          options
+        )}
       </ProjectLayout>
     </>
   )

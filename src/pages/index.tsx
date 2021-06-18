@@ -24,7 +24,7 @@ const IndexPage = () => {
 
   return (
     <>
-      <SEO title="Home" />
+      <SEO title="Home" themeColor="#5C5EF3" />
       <DefaultLayout isPurple={true}>
         <Navbar
           usePurple={true}
@@ -37,8 +37,6 @@ const IndexPage = () => {
   )
 }
 
-IndexPage.propTypes = {
-
-}
+IndexPage.propTypes = {}
 
 export default IndexPage

@@ -44,8 +44,6 @@ module.exports = {
         name: `JacobBrasil.com`,
         short_name: `JacobBrasil.com`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
         display: `minimal-ui`,
         icon: `./src/images/logo.png`, // This path is relative to the root of the site.
       },
