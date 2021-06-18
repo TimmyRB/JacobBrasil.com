@@ -13,10 +13,14 @@ const Card = styled.div`
   border-radius: 14px;
   color: #13162a;
   text-align: left;
-
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-
   padding: 14px;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+  direction: ltr;
+
+  :hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  }
 `
 
 const Image = styled(Img)<{ fluid: FluidObject | FluidObject[] }>`

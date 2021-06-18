@@ -66,6 +66,7 @@ const ProjectsGrid = styled.span`
   width: 40vw;
   grid-gap: 12px;
   grid-template-columns: 1fr 1fr;
+  direction: rtl;
   overflow: visible;
 
   @media (min-width: 1800px) {
@@ -79,64 +80,6 @@ const ProjectsGrid = styled.span`
   @media (max-width: 767px) {
     width: 100%;
   }
-`
-
-const ToggleHolder = styled.div`
-  display: inline-flex;
-  justify-content: space-between;
-  align-items: center;
-`
-
-const Toggle = styled.input.attrs({
-  type: "checkbox",
-})`
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  -webkit-tap-highlight-color: transparent;
-  cursor: pointer;
-  height: 32px;
-  width: 52px;
-  border-radius: 16px;
-  display: inline-block;
-  position: relative;
-  margin: 0;
-  border: 2px solid #13162a;
-  background: #13162a;
-  transition: all 0.2s ease;
-
-  :after {
-    content: "";
-    position: absolute;
-    top: 2px;
-    left: 2px;
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    background: white;
-    box-shadow: 0 1px 2px rgba(44, 44, 44, 0.2);
-    transition: all 0.2s cubic-bezier(0.5, 0.1, 0.75, 1.35);
-  }
-
-  :checked {
-    border-color: #4949e5;
-    background: #4949e5;
-  }
-
-  :checked::after {
-    transform: translatex(20px);
-  }
-
-  :focus {
-    outline: 0;
-  }
-`
-
-const ToggleLabel = styled.label`
-  display: inline-block;
-  margin-left: 12px;
-  font-weight: 700;
-  font-size: 20px;
 `
 
 type Tags = {
@@ -187,7 +130,6 @@ const Showcase = () => {
   })
 
   const [enabledTags, setEnabledTags] = useState([])
-  const [absoluteMode, setAbsoluteMode] = useState(false)
   const [, updateState] = useState(0)
   const forceUpdate = useCallback(() => updateState(tick => tick + 1), [])
 
@@ -204,11 +146,7 @@ const Showcase = () => {
       }
     })
 
-    if (absoluteMode) {
-      return foundCount === enabledTags.length && foundCount === tags.length
-    } else {
-      return foundCount > 0
-    }
+    return foundCount === enabledTags.length
   }
 
   return (
