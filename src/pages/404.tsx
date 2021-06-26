@@ -42,7 +42,7 @@ const HeroButton = styled.button`
 
 const NotFoundPage = () => (
   <DefaultLayout>
-    <SEO title="404 Page Not found" themeColor="#13162a" />
+    <SEO title="404 Page Not found" themeColor="#f7f7ff" />
     <Holder>
       <Icon>✋</Icon>
       <Text>This is not the page your are looking for...</Text>

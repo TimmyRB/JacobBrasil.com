@@ -77,7 +77,9 @@ function SEO({ description, lang, meta, title, themeColor }) {
           content: themeColor
         }
       ].concat(meta)}
-    />
+    >
+      <style>{`body { background-color: ${themeColor}; }`}</style>
+      </Helmet>
   )
 }
 
