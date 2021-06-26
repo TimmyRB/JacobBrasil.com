@@ -12,6 +12,7 @@ body {
   -ms-user-select: none !important;
   -webkit-tap-highlight-color: transparent !important;
   user-select: none !important;
+  background-color: #f7f7ff;
 }
 
 .projectLayout {
