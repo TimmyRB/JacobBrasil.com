@@ -10,6 +10,7 @@ interface ProjectType {
   id: string
   title: string
   slug: string
+  description: { json }
   category: TagType[]
   image: {
     fluid: FluidObject | FluidObject[]

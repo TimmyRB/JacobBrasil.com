@@ -1,13 +1,20 @@
 import React from "react"
+import styled from "styled-components"
 
-import "./layout.css"
+const Layout = styled.body`
+  background-color: #f7f7ff;
+`
+const LayoutInner = styled.div`
+  margin: 0 auto;
+  padding: 0 10%;
+`
 
 const ProjectLayout = ({ children }: ProjectLayoutProps) => {
   return (
     <>
-      <div className="projectLayout">
-        <div className="projectInner">{children}</div>
-      </div>
+      <Layout>
+        <LayoutInner>{children}</LayoutInner>
+      </Layout>
     </>
   )
 }

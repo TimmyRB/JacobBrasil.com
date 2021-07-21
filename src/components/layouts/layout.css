@@ -12,15 +12,5 @@ body {
   -ms-user-select: none !important;
   -webkit-tap-highlight-color: transparent !important;
   user-select: none !important;
-  background-color: #f7f7ff;
-}
-
-.projectLayout {
-  overflow-y: hidden;
-}
-
-.projectInner {
-  max-width: 85.3125rem;
-  margin: 0 auto;
-  padding: 0 10%;
+  background-color: #f7f7ff !important;
 }

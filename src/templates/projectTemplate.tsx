@@ -15,11 +15,18 @@ import styled from "styled-components"
 import Navbar from "../components/navbar/Navbar"
 import ProjectLayout from "../components/layouts/ProjectLayout"
 import { copyToClipboard } from "../utils/CopyToClipboard"
+import { ProjectType, TagType } from "../components/types"
 
 export const query = graphql`
   query($slug: String!) {
     contentfulProject(slug: { eq: $slug }) {
+      id
       title
+      category {
+        id
+        title
+        slug
+      }
       description {
         json
       }
@@ -42,45 +49,58 @@ export const query = graphql`
   }
 `
 
+const Row = styled.div`
+  display: flex;
+  flex-direction: row;
+
+  @media (max-width: 1000px) {
+    flex-direction: column;
+  }
+`
+
+const Column = styled.div`
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+
+  @media (max-width: 1000px) {
+    width: 100%;
+  }
+`
+
 const FeaturedImage = styled.div`
-  width: 100%;
-  background-color: #ffffff;
+  width: 50%;
   transition: scale 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
 
-  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12),
+  /* -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12),
     0 1px 2px rgba(0, 0, 0, 0.24);
   -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); */
 
-  @media (min-width: 90rem) {
-    float: right;
-    width: 49%;
-    margin-left: 1.35rem;
-    margin-bottom: 0.5rem;
+  @media (max-width: 1000px) {
+    width: 100%;
   }
 `
 
 const Header = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 100%;
-  margin-bottom: 1.5rem;
+  /* width: 100%; */
+  margin: 0 0 0 1rem;
 
-  @media (min-width: 90rem) {
-    float: left;
-    width: 49%;
-    margin-top: -18px;
+  @media (max-width: 1000px) {
+    margin: 0;
   }
 `
 
-const HeaderText = styled.div``
+const HeaderText = styled.header``
 
-const Title = styled.span`
-  font-size: 3rem;
+const Title = styled.h1`
+  font-size: 2rem;
   font-weight: 700;
   color: #0f0f11;
   text-decoration: none;
-  margin-top: 1rem;
+  margin: 0 0 0 0;
 `
 
 const Subtitle = styled.span`
@@ -89,11 +109,35 @@ const Subtitle = styled.span`
   color: #5c5c5c;
 `
 
+const TagsGrid = styled.span`
+  display: flex;
+  flex-wrap: wrap;
+`
+
+const Tag = styled.div`
+  font-size: 12px;
+  font-weight: 400;
+  text-decoration: none;
+  overflow: clip;
+  object-fit: cover;
+  padding: 2px 8px;
+  border-radius: 5px;
+  margin-right: 4px;
+  margin-top: 4px;
+  background-color: #eee;
+  color: #13162a;
+`
+
 const Content = styled.p`
   font-size: 1.25rem;
   font-weight: 500;
+  margin: 0 0 0 1rem;
   color: #0f0f11;
   text-align: justify;
+
+  @media (max-width: 1000px) {
+    margin: 0 0 2.5rem 0;
+  }
 `
 
 const options = {
@@ -103,9 +147,10 @@ const options = {
 }
 
 const ProjectTemplate = props => {
+  const project: ProjectType = props.data.contentfulProject
   return (
     <>
-      <SEO title={props.data.contentfulProject.title} themeColor="#13162a" />
+      <SEO title={project.title} themeColor="#13162a" />
       <ProjectLayout>
         <Notifications />
         <Navbar
@@ -113,53 +158,61 @@ const ProjectTemplate = props => {
           menuLinks={props.data.site.siteMetadata.menuLinks}
           siteTitle={props.data.site.siteMetadata?.title || `Title`}
         />
-        <FeaturedImage>
-          {props.data.contentfulProject.image && (
-            <Img
-              fluid={props.data.contentfulProject.image.fluid}
-              alt={props.data.contentfulProject.title}
-            />
-          )}
-        </FeaturedImage>
-        <Header>
-          <HeaderText>
-            <Title>{props.data.contentfulProject.title}</Title>
-            <br />
-            <Subtitle>
-              Updated{" "}
-              {new Date(
-                props.data.contentfulProject.updatedAt
-              ).toLocaleString()}
-            </Subtitle>
-          </HeaderText>
-          <FontAwesomeIcon
-            icon={faShareAlt}
-            color="#5C5EF3"
-            style={{ paddingTop: "1.25rem", cursor: "pointer" }}
-            onClick={() => {
-              if (navigator.share) {
-                navigator
-                  .share({
-                    title:
-                      `JacobBrasil.com | ` + props.data.contentfulProject.title,
-                    url: window.location.href,
-                  })
-                  .catch(console.error)
-              } else {
-                copyToClipboard(window.location.href)
-                notify.show("Copied!", "custom", 5000, {
-                  background: "#5C5EF3",
-                  text: "#f7f7ff",
-                })
-              }
-            }}
-            size="2x"
-          />
-        </Header>
-        {documentToReactComponents(
-          props.data.contentfulProject.description.json,
-          options
-        )}
+        <Row>
+          <FeaturedImage>
+            {project.image && (
+              <Img fluid={project.image.fluid} alt={project.title} />
+            )}
+          </FeaturedImage>
+          <Column>
+            <Header>
+              <HeaderText>
+                <Title>{project.title}</Title>
+                <TagsGrid>
+                  {project.category.map((tag: TagType) => (
+                    <Tag key={tag.id}>{tag.title}</Tag>
+                  ))}
+                </TagsGrid>
+                <br />
+                {/* <br />
+                <Subtitle>
+                  Updated{" "}
+                  {new Date(
+                    props.data.contentfulProject.updatedAt
+                  ).toLocaleString()}
+                </Subtitle> */}
+              </HeaderText>
+              <FontAwesomeIcon
+                icon={faShareAlt}
+                color="#5C5EF3"
+                style={{
+                  paddingTop: "0.75rem",
+                  fontSize: "1.25rem",
+                  cursor: "pointer",
+                  marginLeft: "0.5rem",
+                }}
+                onClick={() => {
+                  if (navigator.share) {
+                    navigator
+                      .share({
+                        title: `JacobBrasil.com | ` + project.title,
+                        url: window.location.href,
+                      })
+                      .catch(console.error)
+                  } else {
+                    copyToClipboard(window.location.href)
+                    notify.show("Copied!", "custom", 5000, {
+                      background: "#5C5EF3",
+                      text: "#f7f7ff",
+                    })
+                  }
+                }}
+                size="2x"
+              />
+            </Header>
+            {documentToReactComponents(project.description.json, options)}
+          </Column>
+        </Row>
       </ProjectLayout>
     </>
   )
