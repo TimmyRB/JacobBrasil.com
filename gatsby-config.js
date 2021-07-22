@@ -12,10 +12,10 @@ module.exports = {
         name: 'Projects',
         slug: '/projects'
       },
-      {
-        name: 'About',
-        slug: '/about'
-      },
+      // {
+      //   name: 'About',
+      //   slug: '/about'
+      // },
     ]
   },
   plugins: [
