@@ -49,28 +49,30 @@ export const query = graphql`
   }
 `
 
-const Row = styled.div`
-  display: flex;
-  flex-direction: row;
+// const Row = styled.div`
+//   display: flex;
+//   flex-direction: row;
 
-  @media (max-width: 1000px) {
-    flex-direction: column;
-  }
-`
+//   @media (max-width: 1000px) {
+//     flex-direction: column;
+//   }
+// `
 
-const Column = styled.div`
-  width: 50%;
-  display: flex;
-  flex-direction: column;
+// const Column = styled.div`
+//   width: 50%;
+//   display: flex;
+//   flex-direction: column;
 
-  @media (max-width: 1000px) {
-    width: 100%;
-  }
-`
+//   @media (max-width: 1000px) {
+//     width: 100%;
+//   }
+// `
 
 const FeaturedImage = styled.div`
+  float: left;
   width: 50%;
   transition: scale 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  margin: 0 1rem 0 0;
 
   /* -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12),
     0 1px 2px rgba(0, 0, 0, 0.24);
@@ -78,7 +80,9 @@ const FeaturedImage = styled.div`
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); */
 
   @media (max-width: 1000px) {
+    float: none;
     width: 100%;
+    margin: 0 0 1rem 0;
   }
 `
 
@@ -86,11 +90,6 @@ const Header = styled.div`
   display: flex;
   justify-content: space-between;
   /* width: 100%; */
-  margin: 0 0 0 1rem;
-
-  @media (max-width: 1000px) {
-    margin: 0;
-  }
 `
 
 const HeaderText = styled.header``
@@ -100,7 +99,7 @@ const Title = styled.h1`
   font-weight: 700;
   color: #0f0f11;
   text-decoration: none;
-  margin: 0 0 0 0;
+  margin: 0;
 `
 
 const Subtitle = styled.span`
@@ -112,6 +111,7 @@ const Subtitle = styled.span`
 const TagsGrid = styled.span`
   display: flex;
   flex-wrap: wrap;
+  margin-bottom: 0.5rem;
 `
 
 const Tag = styled.div`
@@ -131,12 +131,11 @@ const Tag = styled.div`
 const Content = styled.p`
   font-size: 1.25rem;
   font-weight: 500;
-  margin: 0 0 0 1rem;
   color: #0f0f11;
   text-align: justify;
 
   @media (max-width: 1000px) {
-    margin: 0 0 2.5rem 0;
+    margin-bottom: 2.5rem;
   }
 `
 
@@ -158,61 +157,60 @@ const ProjectTemplate = props => {
           menuLinks={props.data.site.siteMetadata.menuLinks}
           siteTitle={props.data.site.siteMetadata?.title || `Title`}
         />
-        <Row>
-          <FeaturedImage>
-            {project.image && (
-              <Img fluid={project.image.fluid} alt={project.title} />
-            )}
-          </FeaturedImage>
-          <Column>
-            <Header>
-              <HeaderText>
-                <Title>{project.title}</Title>
-                <TagsGrid>
-                  {project.category.map((tag: TagType) => (
-                    <Tag key={tag.id}>{tag.title}</Tag>
-                  ))}
-                </TagsGrid>
-                <br />
-                {/* <br />
+        {/* <Row> */}
+        <FeaturedImage>
+          {project.image && (
+            <Img fluid={project.image.fluid} alt={project.title} />
+          )}
+        </FeaturedImage>
+        {/* <Column> */}
+        <Header>
+          <HeaderText>
+            <Title>{project.title}</Title>
+            <TagsGrid>
+              {project.category.map((tag: TagType) => (
+                <Tag key={tag.id}>{tag.title}</Tag>
+              ))}
+            </TagsGrid>
+            {/* <br />
                 <Subtitle>
                   Updated{" "}
                   {new Date(
                     props.data.contentfulProject.updatedAt
                   ).toLocaleString()}
                 </Subtitle> */}
-              </HeaderText>
-              <FontAwesomeIcon
-                icon={faShareAlt}
-                color="#5C5EF3"
-                style={{
-                  paddingTop: "0.75rem",
-                  fontSize: "1.25rem",
-                  cursor: "pointer",
-                  marginLeft: "0.5rem",
-                }}
-                onClick={() => {
-                  if (navigator.share) {
-                    navigator
-                      .share({
-                        title: `JacobBrasil.com | ` + project.title,
-                        url: window.location.href,
-                      })
-                      .catch(console.error)
-                  } else {
-                    copyToClipboard(window.location.href)
-                    notify.show("Copied!", "custom", 5000, {
-                      background: "#5C5EF3",
-                      text: "#f7f7ff",
-                    })
-                  }
-                }}
-                size="2x"
-              />
-            </Header>
-            {documentToReactComponents(project.description.json, options)}
-          </Column>
-        </Row>
+          </HeaderText>
+          <FontAwesomeIcon
+            icon={faShareAlt}
+            color="#5C5EF3"
+            style={{
+              paddingTop: "0.75rem",
+              fontSize: "1.25rem",
+              cursor: "pointer",
+              marginLeft: "0.5rem",
+            }}
+            onClick={() => {
+              if (navigator.share) {
+                navigator
+                  .share({
+                    title: `JacobBrasil.com | ` + project.title,
+                    url: window.location.href,
+                  })
+                  .catch(console.error)
+              } else {
+                copyToClipboard(window.location.href)
+                notify.show("Copied!", "custom", 5000, {
+                  background: "#5C5EF3",
+                  text: "#f7f7ff",
+                })
+              }
+            }}
+            size="2x"
+          />
+        </Header>
+        {documentToReactComponents(project.description.json, options)}
+        {/* </Column>
+        </Row> */}
       </ProjectLayout>
     </>
   )
