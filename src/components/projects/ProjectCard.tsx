@@ -1,9 +1,8 @@
 import React from "react"
 import styled from "styled-components"
-import Img from "gatsby-image/withIEPolyfill"
+import { GatsbyImage, getImage, IGatsbyImageData } from "gatsby-plugin-image"
 import { Link } from "gatsby"
 import { ProjectType, TagType } from "../types"
-import { FluidObject } from "gatsby-image"
 
 const Card = styled.div`
   display: flex;
@@ -23,7 +22,7 @@ const Card = styled.div`
   }
 `
 
-const Image = styled(Img)<{ fluid: FluidObject | FluidObject[] }>`
+const Image = styled(GatsbyImage) <{ image: IGatsbyImageData }>`
   width: 100%;
   height: 0;
   padding-top: 56.25%;
@@ -57,25 +56,27 @@ const Tag = styled.div<{ enabled: boolean }>`
   color: ${props => (props.enabled ? "#fff" : "#13162a")};
 `
 
-const ProjectCard = ({ project, enabledTags }: ProjectCardProps) => (
-  <Card as={Link} to={project.slug}>
-    <Image
-      key={project.id}
-      className="slideImg"
-      objectFit="cover"
-      alt={project.title}
-      fluid={project.image.fluid}
-    />
-    <Title>{project.title}</Title>
-    <TagsGrid>
-      {project.category.map(tag => (
-        <Tag key={tag.id} enabled={enabledTags.includes(tag.title)}>
-          {tag.title}
-        </Tag>
-      ))}
-    </TagsGrid>
-  </Card>
-)
+const ProjectCard = ({ project, enabledTags }: ProjectCardProps) => {
+  return (
+    <Card as={Link} to={project.slug}>
+      <Image
+        key={project.id}
+        className="slideImg"
+        objectFit="cover"
+        alt={project.title}
+        image={project.image.gatsbyImageData}
+      />
+      <Title>{project.title}</Title>
+      <TagsGrid>
+        {project.category.map(tag => (
+          <Tag key={tag.id} enabled={enabledTags.includes(tag.title)}>
+            {tag.title}
+          </Tag>
+        ))}
+      </TagsGrid>
+    </Card>
+  )
+}
 
 interface ProjectCardProps {
   project: ProjectType

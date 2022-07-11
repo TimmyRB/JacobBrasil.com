@@ -107,9 +107,7 @@ const Showcase = () => {
             title
             slug
             image {
-              fluid(quality: 100) {
-                ...GatsbyContentfulFluid_noBase64
-              }
+              gatsbyImageData(placeholder: TRACED_SVG)
             }
             category {
               id
@@ -129,11 +127,11 @@ const Showcase = () => {
     })
   })
 
-  const [enabledTags, setEnabledTags] = useState([])
+  const [enabledTags, setEnabledTags] = useState<string[]>([])
   const [, updateState] = useState(0)
   const forceUpdate = useCallback(() => updateState(tick => tick + 1), [])
 
-  function set(array: any[]) {
+  function set(array: string[]) {
     setEnabledTags(array)
     forceUpdate()
   }

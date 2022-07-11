@@ -1,6 +1,6 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import Img from "gatsby-image"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import styled from "styled-components"
 
 const ImageWrap = styled.div`
@@ -21,21 +21,23 @@ const HeroImage = () => {
     query {
       file(name: { eq: "Phone" }, extension: { eq: "png" }) {
         childImageSharp {
-          fluid(pngQuality: 100) {
-            ...GatsbyImageSharpFluid_noBase64
-          }
+          gatsbyImageData(placeholder: TRACED_SVG)
         }
       }
     }
   `)
 
-  if (!data?.file?.childImageSharp?.fluid) {
+  if (!data?.file?.childImageSharp?.gatsbyImageData) {
     return <div>Picture not found</div>
   }
 
+  const image = getImage(data.file.childImageSharp.gatsbyImageData)
+
   return (
     <ImageWrap>
-      <Img fluid={data.file.childImageSharp.fluid} />
+      {image && (
+        <GatsbyImage image={image} alt="Hero Image" />
+      )}
     </ImageWrap>
   )
 }

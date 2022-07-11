@@ -1,4 +1,4 @@
-import { FluidObject } from "gatsby-image"
+import { IGatsbyImageData } from "gatsby-plugin-image"
 
 interface TagType {
   id: string
@@ -10,10 +10,10 @@ interface ProjectType {
   id: string
   title: string
   slug: string
-  description: { json }
+  description: any
   category: TagType[]
   image: {
-    fluid: FluidObject | FluidObject[]
+    gatsbyImageData: IGatsbyImageData
   }
 }
 

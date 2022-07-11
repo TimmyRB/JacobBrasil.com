@@ -6,10 +6,10 @@ import { faShareAlt } from "@fortawesome/free-solid-svg-icons"
 
 import Notifications, { notify } from "react-notify-toast"
 
-import { BLOCKS } from "@contentful/rich-text-types"
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
+import { BLOCKS, MARKS } from "@contentful/rich-text-types"
+import { renderRichText } from "gatsby-source-contentful/rich-text"
 
-import Img from "gatsby-image"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import SEO from "../components/seo"
 import styled from "styled-components"
 import Navbar from "../components/navbar/Navbar"
@@ -28,12 +28,10 @@ export const query = graphql`
         slug
       }
       description {
-        json
+        raw
       }
       image {
-        fluid(quality: 100) {
-          ...GatsbyContentfulFluid_noBase64
-        }
+        gatsbyImageData
       }
       updatedAt
     }
@@ -159,9 +157,7 @@ const ProjectTemplate = props => {
         />
         {/* <Row> */}
         <FeaturedImage>
-          {project.image && (
-            <Img fluid={project.image.fluid} alt={project.title} />
-          )}
+          <GatsbyImage image={project.image.gatsbyImageData} alt={project.title} />
         </FeaturedImage>
         {/* <Column> */}
         <Header>
@@ -208,7 +204,8 @@ const ProjectTemplate = props => {
             size="2x"
           />
         </Header>
-        {documentToReactComponents(project.description.json, options)}
+        {/* {documentToReactComponents(project.description.raw, options)} */}
+        {renderRichText(project.description)}
         {/* </Column>
         </Row> */}
       </ProjectLayout>
